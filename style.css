@@ -1,0 +1,700 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --preto: #080408;
+    --vinho: #350914;
+    --vermelho: #711528;
+    --vermelho-claro: #a62b42;
+    --dourado: #d6a84f;
+    --dourado-claro: #f5d889;
+    --creme: #f5ead0;
+    --cinza: #c9bda8;
+}
+
+/* =========================
+   FUNDO
+========================= */
+
+body {
+    min-height: 100vh;
+    padding: 55px 25px 100px;
+
+    color: var(--creme);
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(166, 43, 66, 0.35),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(214, 168, 79, 0.12),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(110, 20, 40, 0.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #050305,
+            #16070c 45%,
+            #070406
+        );
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+/* textura mágica */
+
+body::before {
+    content: "✦        ✧             ⋆        ✦             ✧        ⋆";
+
+    position: fixed;
+    inset: 0;
+
+    color: rgba(245, 216, 137, 0.15);
+
+    font-size: 20px;
+    line-height: 150px;
+    letter-spacing: 25px;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation: estrelas 12s linear infinite;
+}
+
+@keyframes estrelas {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-150px);
+    }
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+h1 {
+    position: relative;
+
+    margin-bottom: 8px;
+
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 700;
+
+    letter-spacing: 8px;
+    text-transform: uppercase;
+
+    color: var(--dourado-claro);
+
+    text-shadow:
+        0 0 5px #d6a84f,
+        0 0 20px rgba(214, 168, 79, 0.45),
+        0 0 50px rgba(166, 43, 66, 0.4);
+
+    animation: entrada 1.5s ease;
+}
+
+h1::before {
+    content: "✦";
+    position: absolute;
+
+    left: -45px;
+    top: 5px;
+
+    font-size: 25px;
+    color: var(--dourado);
+}
+
+h1::after {
+    content: "✦  O ESPETÁCULO COMEÇOU  ✦";
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color: var(--dourado);
+
+    opacity: 0.85;
+}
+
+/* =========================
+   AUTORA
+========================= */
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 40px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    font-style: italic;
+
+    letter-spacing: 4px;
+
+    color: var(--creme);
+}
+
+h2::before {
+    content: "— ";
+    color: var(--dourado);
+}
+
+h2::after {
+    content: " —";
+    color: var(--dourado);
+}
+
+/* =========================
+   IMAGEM DO LIVRO
+========================= */
+
+#imagem {
+    position: relative;
+
+    width: min(350px, 90%);
+    min-height: 500px;
+
+    margin: 0 auto 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.04),
+            rgba(80,0,15,0.25)
+        );
+
+    border: 1px solid var(--dourado);
+
+    box-shadow:
+        0 0 0 5px rgba(214, 168, 79, 0.04),
+        0 0 0 10px rgba(214, 168, 79, 0.02),
+        0 25px 70px rgba(0, 0, 0, 0.8),
+        0 0 45px rgba(113, 21, 40, 0.3);
+
+    overflow: hidden;
+
+    transition: 0.6s ease;
+}
+
+/* moldura dourada */
+
+#imagem::before {
+    content: "✦";
+    position: absolute;
+
+    top: 10px;
+    left: 15px;
+
+    color: var(--dourado);
+    font-size: 20px;
+
+    z-index: 2;
+}
+
+#imagem::after {
+    content: "✦";
+    position: absolute;
+
+    bottom: 10px;
+    right: 15px;
+
+    color: var(--dourado);
+    font-size: 20px;
+
+    z-index: 2;
+}
+
+#imagem:hover {
+    transform: scale(1.025) translateY(-8px);
+
+    box-shadow:
+        0 0 0 5px rgba(214, 168, 79, 0.07),
+        0 30px 90px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(166, 43, 66, 0.45);
+}
+
+#imagem img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.7s ease;
+}
+
+#imagem:hover img {
+    transform: scale(1.05);
+}
+
+/* =========================
+   NOME DO LIVRO
+========================= */
+
+#nome {
+    width: min(850px, 90%);
+
+    margin: 0 auto 20px;
+
+    font-family: 'Cinzel', serif;
+
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 600;
+
+    color: var(--dourado-claro);
+
+    text-shadow:
+        0 0 15px rgba(214, 168, 79, 0.35);
+
+    letter-spacing: 2px;
+}
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+#descricao {
+    position: relative;
+
+    width: min(800px, 90%);
+
+    margin: 0 auto 25px;
+
+    padding: 30px 40px;
+
+    font-size: 1.15rem;
+    line-height: 1.8;
+
+    color: var(--cinza);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(80, 10, 25, 0.22),
+            rgba(0, 0, 0, 0.25)
+        );
+
+    border-top: 1px solid rgba(214, 168, 79, 0.4);
+    border-bottom: 1px solid rgba(214, 168, 79, 0.4);
+
+    box-shadow:
+        inset 0 0 40px rgba(0, 0, 0, 0.35);
+}
+
+#descricao::before {
+    content: "“";
+
+    position: absolute;
+
+    left: 10px;
+    top: -10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 80px;
+
+    color: rgba(214, 168, 79, 0.3);
+}
+
+#descricao::after {
+    content: "”";
+
+    position: absolute;
+
+    right: 15px;
+    bottom: -45px;
+
+    font-family: Georgia, serif;
+
+    font-size: 80px;
+
+    color: rgba(214, 168, 79, 0.3);
+}
+
+/* =========================
+   ESTILO / GÊNERO
+========================= */
+
+#estilo {
+    display: inline-block;
+
+    margin: 5px auto 25px;
+    padding: 8px 25px;
+
+    color: var(--dourado-claro);
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    background: rgba(113, 21, 40, 0.3);
+
+    border: 1px solid rgba(214, 168, 79, 0.5);
+
+    box-shadow:
+        0 0 20px rgba(113, 21, 40, 0.2);
+}
+
+/* =========================
+   PREÇO
+========================= */
+
+#preco {
+    margin: 10px auto 30px;
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 2.3rem;
+    font-weight: 600;
+
+    color: var(--dourado-claro);
+
+    text-shadow:
+        0 0 15px rgba(214, 168, 79, 0.5);
+}
+
+#preco::before {
+    content: "✦  ";
+}
+
+#preco::after {
+    content: "  ✦";
+}
+
+/* =========================
+   TEXTO DOS BOTÕES
+========================= */
+
+#botao::after {
+    content: "Escolha sua carta e entre no espetáculo";
+
+    display: block;
+
+    margin: 20px auto 25px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 1.2rem;
+
+    font-style: italic;
+
+    color: rgba(245, 216, 137, 0.7);
+
+    letter-spacing: 2px;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+    position: relative;
+
+    margin: 7px 5px;
+    padding: 14px 25px;
+
+    min-width: 170px;
+
+    color: var(--creme);
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(113, 21, 40, 0.7),
+            rgba(35, 5, 13, 0.9)
+        );
+
+    border: 1px solid rgba(214, 168, 79, 0.55);
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* carta brilhante */
+
+button::before {
+    content: "✦";
+
+    position: absolute;
+
+    left: -20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--dourado);
+
+    opacity: 0;
+
+    transition: 0.35s;
+}
+
+button::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150%;
+    height: 100%;
+
+    top: 0;
+    left: -180%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 220, 140, 0.2),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    transition: 0.6s;
+}
+
+button:hover {
+    color: #fff3c8;
+
+    transform:
+        translateY(-5px)
+        rotate(-1deg);
+
+    border-color: var(--dourado-claro);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(166, 43, 66, 0.8),
+            rgba(54, 7, 19, 0.95)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(166, 43, 66, 0.35),
+        inset 0 0 15px rgba(214, 168, 79, 0.08);
+}
+
+button:hover::before {
+    left: 8px;
+    opacity: 1;
+}
+
+button:hover::after {
+    left: 130%;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   PRIMEIRA FILEIRA
+========================= */
+
+button:nth-of-type(1),
+button:nth-of-type(2),
+button:nth-of-type(3),
+button:nth-of-type(4) {
+    color: var(--dourado-claro);
+
+    border-color: rgba(214, 168, 79, 0.7);
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#imagem {
+    animation: aparecer 1s ease 0.2s both;
+}
+
+#nome {
+    animation: aparecer 1s ease 0.4s both;
+}
+
+#descricao {
+    animation: aparecer 1s ease 0.5s both;
+}
+
+#estilo {
+    animation: aparecer 1s ease 0.6s both;
+}
+
+#preco {
+    animation: aparecer 1s ease 0.7s both;
+}
+
+button {
+    animation: aparecer 0.8s ease 0.8s both;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 35px 15px 70px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+    }
+
+    h1::before {
+        display: none;
+    }
+
+    h1::after {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+    }
+
+    #imagem {
+        min-height: 420px;
+    }
+
+    #imagem img {
+        min-height: 420px;
+    }
+
+    #descricao {
+        padding: 25px 20px;
+        font-size: 1rem;
+    }
+
+    button {
+        display: block;
+
+        width: 90%;
+        max-width: 350px;
+
+        margin: 8px auto;
+    }
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050305;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            #711528,
+            #d6a84f
+        );
+
+    border-radius: 10px;
+}
+
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f5d889;
+}
+
+/* =========================
+   SELEÇÃO
+========================= */
+
+::selection {
+    background: #711528;
+    color: #f5d889;
+}
